@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family Note Section</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(to right,#cfc7ff,#ff7ba5);
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+    width:100%;
+    height:90px;
+    background:rgba(255,255,255,0.2);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 50px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid white;
+}
+
+.logo h1{
+    font-family:'Dancing Script',cursive;
+    font-size:42px;
+    color:#fff;
+}
+
+.nav-links{
+    display:flex;
+    gap:40px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    font-size:18px;
+    font-weight:600;
+}
+
+/* MAIN */
+
+.note-section{
+    width:100%;
+    padding:50px;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.title h2{
+    font-size:70px;
+    color:white;
+    font-family:'Dancing Script',cursive;
+}
+
+.title p{
+    color:white;
+    margin-top:10px;
+    font-size:18px;
+}
+
+/* GRID */
+
+.note-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+/* CARD */
+
+.card{
+    background:#fff7f9;
+    border-radius:30px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    position:relative;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+/* ENVELOPE CARD */
+
+.envelope{
+    position:relative;
+    background:#ffe7ef;
+    min-height:420px;
+    overflow:hidden;
+}
+
+.envelope::before{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:180px;
+    background:#ffd1df;
+    clip-path:polygon(0 0,50% 100%,100% 0);
+    top:0;
+    left:0;
+}
+
+.letter{
+    position:relative;
+    background:white;
+    width:90%;
+    margin:70px auto;
+    padding:30px;
+    border-radius:20px;
+    z-index:2;
+    text-align:center;
+}
+
+.letter h3{
+    font-family:'Dancing Script',cursive;
+    font-size:42px;
+    color:#ff4f88;
+    margin-bottom:20px;
+}
+
+.letter p{
+    line-height:2;
+    color:#555;
+}
+
+.btn{
+    margin-top:20px;
+    padding:14px 30px;
+    border:none;
+    border-radius:12px;
+    background:#ff4f88;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* HEART NOTE */
+
+.paper-note{
+    background:#fffaf2;
+    min-height:420px;
+}
+
+.paper-note h3{
+    font-family:'Dancing Script',cursive;
+    font-size:50px;
+    color:#ff4f88;
+    margin-bottom:20px;
+}
+
+.paper-note p{
+    line-height:2;
+    color:#444;
+    font-size:17px;
+}
+
+/* STICKY NOTES */
+
+.sticky-container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.sticky{
+    padding:25px;
+    border-radius:15px;
+    min-height:180px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transform:rotate(-3deg);
+}
+
+.sticky:nth-child(2){
+    transform:rotate(4deg);
+}
+
+.sticky:nth-child(3){
+    transform:rotate(-4deg);
+}
+
+.sticky:nth-child(4){
+    transform:rotate(3deg);
+}
+
+.pink{
+    background:#ffc7da;
+}
+
+.yellow{
+    background:#fff1a8;
+}
+
+.purple{
+    background:#ead0ff;
+}
+
+.blue{
+    background:#d4f1ff;
+}
+
+.sticky h4{
+    margin-bottom:15px;
+    color:#444;
+}
+
+.sticky p{
+    color:#555;
+    line-height:1.8;
+}
+
+/* MEMORIES */
+
+.memories{
+    margin-top:50px;
+}
+
+.memories-title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.memories-title h2{
+    color:white;
+    font-family:'Dancing Script',cursive;
+    font-size:55px;
+}
+
+.memory-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.memory{
+    background:white;
+    padding:15px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+    transform:rotate(-2deg);
+    transition:0.4s;
+}
+
+.memory:hover{
+    transform:scale(1.03);
+}
+
+.memory img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+.memory p{
+    margin-top:15px;
+    text-align:center;
+    line-height:1.8;
+    color:#555;
+}
+
+/* VOICE NOTE */
+
+.voice{
+    margin-top:50px;
+    background:#fff4f8;
+    text-align:center;
+}
+
+.voice h3{
+    font-family:'Dancing Script',cursive;
+    font-size:50px;
+    color:#ff4f88;
+    margin-bottom:20px;
+}
+
+.audio-box{
+    margin-top:20px;
+    background:white;
+    padding:20px;
+    border-radius:20px;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    color:white;
+    margin-top:50px;
+    padding-bottom:30px;
+    font-size:20px;
+    font-family:'Dancing Script',cursive;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+    <div class="logo">
+        <img src="family.jpg">
+        <h1>Nanna & Akka 💕</h1>
+    </div>
+
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Memories</a>
+        <a href="#">Note</a>
+    </div>
+
+</div>
+
+<!-- NOTE SECTION -->
+
+<section class="note-section">
+
+    <div class="title">
+        <h2>Note 💌</h2>
+        <p>A small note from my heart to my beautiful family ❤️</p>
+    </div>
+
+    <div class="note-grid">
+
+        <!-- ENVELOPE -->
+
+        <div class="card envelope">
+
+            <div class="letter">
+                <h3>A Note For You ❤️</h3>
+
+                <p>
+                    Some feelings are difficult to express in words.
+                    This note carries my love, gratitude,
+                    and emotions for the people who mean everything to me.
+                </p>
+
+                <button class="btn">Open With Love 💖</button>
+            </div>
+
+        </div>
+
+        <!-- MAIN NOTE -->
+
+        <div class="card paper-note">
+
+            <h3>From My Heart 💕</h3>
+
+            <p>
+                Thank you for filling my life with love,
+                care, support, and beautiful memories.
+                Every smile, every moment, and every laugh
+                with all of you became the most precious part
+                of my life 🥹❤️
+            </p>
+
+            <br>
+
+            <p>
+                No matter where life takes me,
+                my heart will always stay with my family 🌸🏡
+            </p>
+
+        </div>
+
+        <!-- STICKY NOTES -->
+
+        <div class="card">
+
+            <div class="sticky-container">
+
+                <div class="sticky pink">
+                    <h4>Note For Nanna ❤️</h4>
+                    <p>You are my superhero forever ✨</p>
+                </div>
+
+                <div class="sticky yellow">
+                    <h4>Note For Amma 🌸</h4>
+                    <p>Your love gives me strength everyday 💖</p>
+                </div>
+
+                <div class="sticky purple">
+                    <h4>Note For Akka 👭</h4>
+                    <p>You are my second mom 🥹</p>
+                </div>
+
+                <div class="sticky blue">
+                    <h4>Note For Annaya 💙</h4>
+                    <p>Thank you for your support and care ✨</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- MEMORIES -->
+
+    <div class="memories">
+
+        <div class="memories-title">
+            <h2>Some Precious Memories 📸</h2>
+        </div>
+
+        <div class="memory-cards">
+
+            <div class="memory">
+                <img src="dad.jpg">
+                <p>Your hand was always my safest place ❤️</p>
+            </div>
+
+            <div class="memory">
+                <img src="sister.jpg">
+                <p>We fought everyday but stayed inseparable 💕</p>
+            </div>
+
+            <div class="memory">
+                <img src="family2.jpg">
+                <p>No celebration feels complete without you all 🎉</p>
+            </div>
+
+            <div class="memory">
+                <img src="trip.jpg">
+                <p>The happiest moments were always together ✨</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- VOICE NOTE -->
+
+    <div class="card voice">
+
+        <h3>A Small Voice Note 🎙️</h3>
+
+        <p>
+            Sometimes voice expresses emotions better than words ❤️
+        </p>
+
+        <div class="audio-box">
+            <audio controls>
+                <source src="voice.mp3" type="audio/mp3">
+            </audio>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+        No matter where life takes us, our hearts will always stay together ❤️
+    </div>
+
+</section>
+
+</body>
+</html>

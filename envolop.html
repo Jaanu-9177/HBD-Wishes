@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Family Love Envelope</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+        background: linear-gradient(to left, #ff9eb1, #bec9ff);
+    /* background:linear-gradient(to right,#e8dfef,#f7dbe5); */
+    overflow:hidden;
+    font-family:'Poppins',sans-serif;
+}
+
+/* MAIN CONTAINER */
+
+.container{
+    position:relative;
+    width:100%;
+    max-width:700px;
+    height:500px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* LETTER CARD */
+
+.card{
+    position:absolute;
+
+    width:700px;
+    height:530px;
+
+    background:white;
+
+    left:50%;
+    top:4px;
+
+    transform:translateX(-50%) translateY(130px);
+
+    padding:20px;
+
+    border-radius:18px;
+
+    transition:1.4s ease;
+
+    z-index:1;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+    overflow-y:auto;
+
+    opacity:0;
+    visibility:hidden;
+}
+
+/* SCROLLBAR */
+
+.card::-webkit-scrollbar{
+    width:5px;
+}
+
+.card::-webkit-scrollbar-thumb{
+    background:#ff9ab3;
+    border-radius:10px;
+}
+
+/* LETTER CONTENT */
+
+.card h2{
+    /* font-family:'Dancing Script',cursive; */
+    font-family: cursive;
+    font-style: italic;
+    color:#ff4f88;
+    margin-bottom:15px;
+    font-size:28px;
+    text-align:center;
+}
+
+.card p{
+    font-family: monospace;
+    font-style: italic;
+    font-weight: bold;
+    font-size:13px;
+    color:#555;
+    line-height:1.8;
+    margin-bottom:14px;
+}
+
+/* HEART */
+
+.inside-heart{
+    position:absolute;
+    top:-15px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:40px;
+}
+
+/* ENVELOPE */
+
+.envelope{
+    position:absolute;
+
+    width:750px;
+    height:440px;
+
+    left:50%;
+    bottom:40px;
+
+    transform:translateX(-50%);
+}
+
+/* BACK */
+
+.back{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#f9a5a5;
+    border-radius:8px;
+}
+
+/* LEFT */
+
+.left{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#e8a8a8;
+    clip-path:polygon(0 0,0 100%,50% 50%);
+    z-index:3;
+}
+
+/* RIGHT */
+
+.right{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#e8a8a8;
+    clip-path:polygon(100% 0,100% 100%,50% 50%);
+    z-index:3;
+}
+
+/* BOTTOM */
+
+.bottom{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#ff6f61;
+    clip-path:polygon(0 100%,50% 50%,100% 100%);
+    z-index:4;
+}
+
+/* TOP FLAP */
+
+.top{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#f58686;
+    clip-path:polygon(0 0,50% 55%,100% 0);
+
+    transform-origin:top;
+
+    transition:1.2s ease;
+
+    z-index:5;
+}
+
+/* OPEN EFFECT */
+
+.container.open .top{
+    transform:rotateX(180deg);
+}
+
+.container.open .card{
+
+    transform:translateX(-50%) translateY(-25px);
+
+    opacity:1;
+    visibility:visible;
+}
+
+/* HEARTS */
+
+.heart{
+    position:absolute;
+    font-size:22px;
+    opacity:0;
+}
+
+.container.open .heart{
+    animation:float 4s linear infinite;
+}
+
+.heart1{
+    left:1000px;
+    top:-1px;
+    animation-delay:0s;
+}
+
+.heart2{
+    left:900px;
+    bottom:310px;
+    animation-delay:0s;
+}
+
+.heart3{
+    left:800px;
+    bottom:110px;
+    animation-delay:0s;
+}
+.heart4{
+    right: 800px;
+    bottom: 110px;
+    animation-delay: 0s;
+}
+.heart5{
+    right:900px;
+    top: 510px;
+    animation-delay: 0s;
+}
+.heart6{
+    right: 1000px;
+    top: -1px;
+    animation-delay: 0s;
+}
+.heart7{
+    right:950px;
+    top:210px;
+    animation-delay: 0s;
+}
+.heart8{
+    left:750px;
+    bottom:200px;
+    animation-delay:0s;
+}
+.heart9{
+    left:870px;
+    bottom:410px;
+    animation-delay: 0s; 
+}
+.heart10{
+    right:850px;
+    bottom:510px;
+    animation-delay: 0s;
+}
+.heart11{
+    right:750px;
+    top:-20px;
+    animation-delay: 0s;
+}
+.heart12{
+    left:750px;
+    top:-20px;
+    animation-delay: 0s;
+}
+.heart13{
+    left:950px;
+    top:210px;
+    animation-delay: 0s;
+}
+.heart14{
+    right:950px;
+    top:210px;
+    animation-delay: 0s;
+}
+.heart15{
+    left:850px;
+    bottom:510px;
+    animation-delay: 0s;
+}
+.heart16{
+    right:870px;
+    bottom:410px;
+    animation-delay: 0s; 
+}
+.heart17{
+    right:750px;
+    bottom:200px;
+    animation-delay:0s;
+}
+.heart18{
+    left:950px;
+    top:350px;
+    animation-delay: 0s;
+}
+.heart19{
+    left:900px;
+    top: 510px;
+    animation-delay: 0s;
+}
+.heart20{
+    right:900px;
+    bottom:310px;
+    animation-delay:0s;
+}
+/* HEART FLOAT */
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-120px);
+        opacity:0;
+    }
+
+}
+
+/* BUTTONS */
+
+.buttons{
+    margin-top:10px;
+    display:flex;
+    gap:14px;
+}
+
+button{
+
+    width:110px;
+    height:42px;
+
+    border:none;
+
+    background:white;
+
+    color:#ff4f88;
+
+    font-size:15px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    border-radius:10px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+button:hover{
+    transform:scale(1.05);
+    background:#ffe6ee;
+}
+
+.back-btn{
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    text-decoration: none;
+}
+
+.back-btn button{
+    width: 120px;
+    height: 45px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: white;
+    color: #ff4f88;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+
+    transition: 0.3s;
+}
+
+.back-btn button:hover{
+    transform: scale(1.08);
+    background: #ffe6ee;
+}
+
+/* TEXT ANIMATION */
+
+.line{
+    opacity:0;
+    transform:translateY(10px);
+}
+
+/* LINE BY LINE */
+
+.container.open .line1{
+    animation:showLine 1s forwards;
+    animation-delay:1s;
+}
+
+.container.open .line2{
+    animation:showLine 1s forwards;
+    animation-delay:2s;
+}
+
+.container.open .line3{
+    animation:showLine 1s forwards;
+    animation-delay:3s;
+}
+
+.container.open .line4{
+    animation:showLine 1s forwards;
+    animation-delay:4s;
+}
+
+.container.open .line5{
+    animation:showLine 1s forwards;
+    animation-delay:5s;
+}
+
+.container.open .line6{
+    animation:showLine 1s forwards;
+    animation-delay:6s;
+}
+
+.container.open .line7{
+    animation:showLine 1s forwards;
+    animation-delay:7s;
+}
+.container.open .line8{
+    animation:showLine 1s forwards;
+    animation-delay:8s;
+    text-align: right;
+}
+
+/* TEXT EFFECT */
+
+@keyframes showLine{
+
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ========================= */
+/* RESPONSIVE DESIGN */
+/* ========================= */
+
+@media screen and (max-width: 768px){
+
+    *{
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    body{
+        width: 100%;
+        min-height: 100vh;
+        overflow-x: hidden;
+        padding: 10px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    /* MAIN CONTAINER */
+
+    .container{
+        position: relative;
+
+        width: 100%;
+        max-width: 100%;
+
+        min-height: 620px;
+        height: auto;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* LETTER CARD */
+
+    .card{
+        position: absolute;
+
+        width: 92vw;
+        max-width: 400px;
+
+        height: 430px;
+
+        left: 50%;
+        top: -20px;
+
+        transform: translateX(-50%) translateY(130px);
+
+        padding: 15px;
+
+        border-radius: 18px;
+
+        overflow-y: auto;
+    }
+
+    .container.open .card{
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    /* TEXT */
+
+    .card h2{
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    .card p{
+        font-size: 11px;
+        line-height: 1.7;
+    }
+
+    /* ENVELOPE */
+
+    .envelope{
+        position: absolute;
+
+        width: 92vw;
+        max-width: 420px;
+
+        height: 240px;
+
+        left: 50%;
+        bottom: 110px;
+
+        transform: translateX(-50%);
+    }
+
+    /* BUTTONS */
+
+    .buttons{
+        margin-top: 20px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 12px;
+
+        flex-wrap: wrap;
+    }
+
+    button{
+        width: 95px;
+        height: 38px;
+
+        font-size: 12px;
+
+        border-radius: 10px;
+    }
+
+    /* BACK BUTTON */
+
+    .back-btn{
+        position: fixed;
+
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .back-btn button{
+        width: 90px;
+        height: 36px;
+
+        font-size: 12px;
+    }
+
+    /* HEARTS */
+
+    .heart{
+        font-size: 16px;
+    }
+
+    .heart1{ left:3%; top:10%; }
+    .heart2{ left:8%; top:22%; }
+    .heart3{ left:5%; top:35%; }
+    .heart4{ right:5%; top:35%; }
+    .heart5{ right:8%; top:55%; }
+    .heart6{ right:3%; top:15%; }
+
+    .heart7{ left:10%; top:50%; }
+    .heart8{ left:7%; top:65%; }
+    .heart9{ left:5%; top:80%; }
+
+    .heart10{ right:5%; top:80%; }
+    .heart11{ right:8%; top:65%; }
+    .heart12{ right:10%; top:50%; }
+
+    .heart13{ left:15%; top:90%; }
+    .heart14{ right:15%; top:90%; }
+
+    .heart15{ left:15%; top:5%; }
+    .heart16{ right:15%; top:5%; }
+
+    .heart17{ left:20%; top:30%; }
+    .heart18{ right:20%; top:30%; }
+
+    .heart19{ left:20%; top:70%; }
+    .heart20{ right:20%; top:70%; }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container" id="container">
+
+    <!-- HEARTS -->
+
+    <div class="heart heart1">💖</div>
+
+    <div class="heart heart2">💕</div>
+
+    <div class="heart heart3">💗</div>
+
+    <div class="heart heart4">💖</div>
+
+    <div class="heart heart5">💕</div>
+
+    <div class="heart heart6">💗</div>
+
+    <div class="heart heart7">💖</div>
+
+    <div class="heart heart8">💕</div>
+
+    <div class="heart heart9">💗</div>
+
+    <div class="heart heart10">💖</div>
+    
+    <div class="heart heart11">❤️</div>
+
+    <div class="heart heart12">💕</div>
+
+    <div class="heart heart13">💗</div>
+
+    <div class="heart heart14">💖</div>
+
+    <div class="heart heart15">💕</div>
+
+    <div class="heart heart16">💗</div>
+
+    <div class="heart heart17">💖</div>
+
+    <div class="heart heart18">❤️</div>
+
+    <div class="heart heart19">💗</div>
+
+    <div class="heart heart20">❤️</div>
+
+    <!-- LETTER -->
+
+    <div class="card">
+
+        <div class="inside-heart">💖</div>
+
+        <h2 class="line line1">
+            To my dearest Nanna, Akka, and my beautiful family ❤️🌸
+        </h2>
+
+        <p class="line line2">
+            This note is not only a birthday message, it is a small piece of my heart filled with love, memories,
+            emotions, and gratitude for the most precious people in my life 🥹💖 Every moment I spent with all
+            of you became one of the most beautiful memories I will carry forever. No matter how far life takes
+            me, my heart always stays with my family because home is not a place for me, it is all of you 🤍🏡✨
+        </p>
+
+        <p class="line line3">
+            Nanna, thank you for giving me birth and giving me a life filled with care, protection, love, and strength 🙏💙
+            You are my first hero and you will always remain my superhero forever 🦸‍♂️✨ Every sacrifice you made, every hard
+            day you faced, and every silent support you gave became the reason I am standing strong today. Without your support,
+            guidance, and belief in me, I am nothing 😭❤️ I always feel safe when you are near me because your presence alone
+            gives me strength and peace 🛡️💫 And Amma 🌸❤️, your love, care, patience, and affection made my life beautiful
+            in the most special way. Your comforting words, warm hugs, endless support, and the way you always understand me
+            without even saying anything means everything to me 🥹💖 Both of you together became my biggest blessing, my safest
+            place, and the strongest reason behind every smile and success in my life ✨🏡 Thank you for teaching me how to stay
+            strong, kind, respectful, and brave in every situation. I love you Amma and Nanna varyyyyy muchhhhhhh 💖🥹
+        </p>
+
+        <p class="line line4">
+            And my lovely Akka 👭💕, even though we fight a lot whenever we are together 😂💥, those fights are one of the most
+            special parts of my life because they are filled with love, craziness, and our beautiful bond 🤍 I miss all those moments
+            so much now 😭✨ I miss irritating you, laughing with you, sharing silly talks, and spending time together like before 🥺💫
+            You are not only my sister, you are truly my second mom 🌷❤️ You cared for me, protected me, guided me, and supported me in
+            every stage of my life. Even your scoldings were hidden forms of love and care 💕 No matter how much we fight, my love and
+            respect for you will never change.
+        </p>
+
+        <p class="line line5">
+            And to my Annaya 💙✨, thank you for always being someone I could depend on and feel comfortable with. The bond we share
+            is filled with fun, support, care, and countless memories 🥹🤍 Whether it is teasing each other, laughing together, or
+            simply spending time as a family, those moments became so precious to me 💫 I miss all our talks, our fun moments, and the
+            happiness of being together 😭🏡 Your support and presence always gave me comfort and strength, and I feel lucky to have
+            such a caring Annaya in my life 💖
+        </p>
+
+        <p class="line line6">
+            To my beautiful family 👨‍👩‍👧❤️, thank you for giving me countless memories, endless love, and the warmest feeling of togetherness.
+            Every laugh we shared, every festival we celebrated, every photo we captured, and every small moment we spent together became
+            priceless for me 📸✨ Distance made me realize how deeply connected my heart is with all of you 🥹💔 I am missing all of you
+            veryyy muchhhhhh every single day 😭❤️ Sometimes I miss even the smallest moments, our random conversations, our laughter at
+            dinner time, and simply being around all of you 🌸🏡
+        </p>
+
+        <p class="line line7">
+            No matter where life takes us, you all will always be my biggest strength, my safest place, and my forever happiness 💖✨
+            Thank you for loving me unconditionally and making my life beautiful in every possible way 🌈🥹 Happy Birthday once again
+            to my dearest Nanna and Akka 🎂🎉❤️ I pray that your lives are always filled with happiness, peace, health, love, smiles,
+            and endless blessings 🌸✨
+        </p>
+        <p class="line line8">
+            With Love,<br>
+            Jaanu❤️.
+        </p>
+
+    </div>
+
+    <!-- ENVELOPE -->
+
+    <div class="envelope">
+
+        <div class="back"></div>
+
+        <div class="left"></div>
+
+        <div class="right"></div>
+
+        <div class="bottom"></div>
+
+        <div class="top"></div>
+
+    </div>
+
+</div>
+
+<!-- BUTTONS -->
+
+<div class="buttons">
+
+    <button onclick="openEnvelope()">
+        OPEN 💌
+    </button>
+
+    <button onclick="closeEnvelope()">
+        CLOSE ❤️
+    </button>
+
+</div>
+
+<a href="index.html" class="back-btn">
+    <button>
+        BACK ⬅️
+    </button>
+</a>
+<script>
+
+const container = document.getElementById("container");
+
+function openEnvelope(){
+
+    container.classList.add("open");
+
+}
+
+function closeEnvelope(){
+
+    container.classList.remove("open");
+
+    const lines = document.querySelectorAll(".line");
+
+    lines.forEach(line => {
+
+        line.style.animation = "none";
+
+        line.offsetHeight;
+
+        line.style.animation = "";
+
+    });
+
+}
+
+</script>
+
+</body>
+
+</html>
